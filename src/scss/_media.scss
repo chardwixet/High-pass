@@ -1,0 +1,30 @@
+
+@mixin small-desktop {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 992px) {
+    @content;
+  }
+}
+
+@mixin small-tablet {
+  @media (max-width: 760px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 573px) {
+    @content;
+  }
+}
+
+@media (max-width: 573px) {
+  :root {
+    --placeholder-font-size: 14px;
+  }
+}

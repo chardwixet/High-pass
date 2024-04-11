@@ -1,0 +1,38 @@
+:root {
+  --side-padding: 30px;
+  --grid-col: repeat(2, 1fr);
+  --placeholder-font-size: 16px;
+}
+
+//colors
+$primary-color: #fff;
+$white-dark: #e9e9e9;
+$second-color: #202020;
+$orange-dark: #ce4307;
+$orange: #bc572b;
+$orange-light: #ff6e30;
+$gray-dark: #4A4A4A;
+$gray: #cacaca;
+$gray-light: #999;
+$sum-card: 7;
+
+//values
+$margin-b: 68px;
+$gap: 30px;
+$test: 1;
+$indent: (15px 7px);
+
+.lol {
+
+  color: $orange;
+}
+
+//fonts
+$primary-font: 'Roboto';
+$second-font: 'TTFirsNeue';
+
+//text
+$content: ('#мастеркласс' '#пейзаж' '#портрет' '#предмет' '#fuji' '#проектзабвение' '#ретушь' '#портрет');
+
+//link
+

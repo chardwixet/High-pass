@@ -1,0 +1,1435 @@
+@import '_normalize.scss';
+@import '_common.scss';
+@import '_var.scss';
+@import '_mixin.scss';
+@import '_media.scss';
+
+
+//header
+
+.header {
+  background-color: $second-color;
+  color: $primary-color;
+
+  &__container {
+    display: flex;
+    padding: 23px var(--side-padding);
+    align-items: center;
+
+    @include small-desktop {
+      padding: 25px var(--side-padding);
+    }
+
+    @include tablet {
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 45px;
+        background-color: $gray-dark;
+        z-index: 1;
+      }
+
+      position: relative;
+      padding: var(--side-padding);
+      padding-bottom: 12px;
+      flex-wrap: wrap;
+      row-gap: 36px;
+      justify-content: space-between;
+    }
+
+    @include mobile {
+      padding-top: 25px;
+      padding-bottom: 9px;
+    }
+  }
+
+  &__link {
+    margin-right: 133px;
+
+    @include small-desktop {
+      margin-right: 77px;
+    }
+
+
+  }
+
+  .nav {
+    margin-right: auto;
+
+    @include tablet {
+      z-index: 2;
+      order: 3;
+      margin-right: 0;
+      width: 100%;
+    }
+
+    @include mobile {
+      display: none;
+    }
+
+    &__list {
+      @include list-reset;
+      display: flex;
+      gap: 67px;
+      font-family: $second-font;
+
+      @include small-desktop {
+        gap: 21px;
+      }
+
+      @include tablet {
+        justify-content: space-between;
+      }
+    }
+
+    &__link {
+
+      padding: 2px 6px;
+      transition: background-color 0.2s ease-in-out,
+                  color 0.2s ease-in-out;
+
+      &:focus-visible {
+        outline: none;
+        background-color: $orange;
+      }
+
+      &:hover {
+        color: $orange-light;
+      }
+
+      &:active {
+        color: $orange-dark;
+      }
+
+      @include tablet {
+        padding: 0;
+      }
+    }
+  }
+
+
+
+  .btn-search {
+    @include btn-reset;
+
+    & path {
+      fill: $primary-color;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible .btn-search__svg {
+      fill: $orange;
+    }
+
+    &__svg {
+      width: 25px;
+      height: 25px;
+      fill: $primary-color;
+      transition: fill 0.2s ease-in-out;
+
+      @include mobile {
+        width: 20px;
+        height: 20px;
+      }
+
+      &:hover {
+        fill: $orange-light;
+      }
+
+      &:active {
+        fill: $orange-dark;
+      }
+    }
+  }
+
+  &__menu {
+    width: 100%;
+    z-index: 2;
+    order: 3;
+    display: none;
+
+    @include mobile {
+      display: block;
+    }
+  }
+
+  .btn-burger {
+    @include btn-reset;
+
+    text-align: start;
+
+
+    &__svg {
+      width: 20px;
+      height: 18px;
+      fill: $primary-color;
+    }
+  }
+}
+
+
+
+
+
+//hero
+.hero {
+  &__container {
+    padding-top: 41px;
+    padding-bottom: 68px;
+
+    @include small-desktop {
+      padding-top: 34px;
+    }
+
+    @include tablet {
+      padding-top: 36px;
+      padding-bottom: 68px;
+    }
+
+    @include mobile {
+      padding-top: 30px;
+      padding-bottom: 50px;
+    }
+  }
+
+  &-grid {
+    font-family: $second-font;
+
+    @include tablet {
+      grid-template-columns: repeat(8, 1fr);
+    }
+
+    @include mobile {
+      grid-template-columns: var(--grid-col);
+    }
+
+    &__item {
+      &::before {
+        font-size: 12px;
+        padding: 5px 7px;
+        top: 6px;
+        right: 5px;
+      }
+    }
+
+    &__item--1 {
+      display: flex;
+      position: relative;
+      @include ghost (nth($content, 1), nth($indent, 1));
+      flex-direction: column;
+      justify-content: end;
+      grid-column: span 6;
+      grid-row: 1 / 3;
+      width: 100%;
+      height: 100%;
+
+      @include small-desktop {
+        grid-column: span 4;
+      }
+
+      @include mobile {
+        grid-column: span 2;
+        min-height: 422px;
+      }
+    }
+
+    &__item--2 {
+      grid-column: span 6;
+
+      @include small-desktop {
+        grid-column: 5 / span 4;
+      }
+
+      @include mobile {
+        grid-column: span 2;
+      }
+    }
+
+    &__item--3,
+    &__item--4 {
+      grid-column: span 3;
+
+      @include small-desktop {
+        grid-column: span 2;
+      }
+
+      @include mobile {
+        grid-column: span 1;
+      }
+    }
+
+    .img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    &__img--2 {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    &__img--3,
+    &__img--4 {
+      display: block;
+      width: 100%;
+
+      object-fit: cover
+    }
+
+    &__item--background {
+      background: no-repeat center center / cover url(../../img/hero-grid__item1.jpg);
+
+      @include small-desktop {
+        background-image: url(../../img/hero-grid__item1-1024w.jpg);
+      }
+
+      @include tablet {
+        background-image: url(../../img/hero-grid__item1-768w.jpg);
+      }
+
+      @include mobile {
+        background-image: url(../../img/hero-grid__item1-320w.jpg);
+      }
+    }
+
+
+
+    &__content {
+
+      padding: 60px;
+
+      @include small-desktop {
+        padding: 31px 30px;
+      }
+
+      @include tablet {
+        padding: 31px 30px;
+      }
+    }
+
+    &__subtext {
+      display: inline-block;
+      font-family: $primary-font;
+      margin-bottom: 5px;
+      font-size: 16px;
+      color: $primary-color;
+
+      @include small-desktop {
+        margin-bottom: 12px;
+      }
+
+      @include tablet {
+        margin-bottom: 16px;
+      }
+
+      @include small-tablet {
+        font-size: 14px;
+      }
+
+      @include mobile {
+        margin-bottom: 10px;
+      }
+    }
+
+    &__title {
+      margin: 0;
+      margin-bottom: 19px;
+      padding: 0;
+      font-size: 36px;
+      color: $primary-color;
+      line-height: 104%;
+
+      @include small-desktop {
+        font-size: 34px;
+        line-height: 100%;
+      }
+
+      @include tablet {
+        line-height: 90%;
+        margin-bottom: 22px;
+      }
+
+      @include small-tablet {
+        font-size: 24px;
+        line-height: 110%;
+      }
+
+      @include mobile {
+        margin-bottom: 13px;
+      }
+    }
+
+    &__btn {
+      @include btn;
+      @include btn--full;
+
+      @include small-tablet {
+        padding: 9px 20px;
+        font-size: 14px;
+      }
+    }
+
+    &__subtitle {
+      color: $second-color;
+      margin-bottom: 18px;
+      line-height: 104%;
+
+      @include small-desktop {
+        margin-bottom: 24px;
+      }
+
+      @include tablet {
+        font-size: 22px;
+        margin-bottom: 16px;
+      }
+
+      @include mobile {
+        padding-top: 5px;
+        font-size: 18px;
+        width: 100%;
+      }
+    }
+  }
+
+
+}
+
+
+
+
+
+//about
+.about {
+  background-color: $second-color;
+
+  &__container {
+    padding-top: 34px;
+    padding-bottom: 65px;
+
+    @include small-desktop {
+      padding-bottom: 77px;
+    }
+
+    @include tablet {
+      padding-top: 33px;
+      padding-bottom: 50px;
+    }
+
+    @include mobile {
+      padding-top: 35px;
+      padding-bottom: 59px;
+    }
+  }
+
+  &-content {
+    @include small-tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile {
+      gap: 18px;
+    }
+  }
+
+  &-title {
+    margin-bottom: 5px;
+    font-weight: 700;
+    color: $primary-color;
+
+    @include tablet {
+      margin-bottom: 8px;
+    }
+
+    @include mobile {
+      margin-bottom: 6px;
+    }
+  }
+
+  &-text {
+    padding: 0;
+    margin: 0;
+    padding-bottom: 6px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: $gray;
+
+    @include small-desktop {
+      padding-bottom: 10px;
+    }
+
+    @include mobile {
+      display: inline-block;
+      width: 100%;
+      font-size: 14px;
+      line-height: 179%;
+      padding-bottom: 0;
+    }
+  }
+
+  &-left {
+    padding-bottom: 3px;
+    grid-column: span 6;
+
+    @include small-desktop {
+      grid-column: span 4;
+    }
+
+    @include tablet {
+      grid-column: span 3;
+    }
+
+    @include small-tablet {
+      grid-column: span 2;
+    }
+  }
+
+  &-right {
+    grid-column: span 6;
+
+    @include small-desktop {
+      padding-bottom: 0;
+      grid-column: span 4;
+    }
+
+    @include tablet {
+      grid-column: span 3;
+    }
+
+    @include small-tablet {
+      grid-column: span 2;
+    }
+
+    &__background {
+      background: no-repeat center center / cover url(../../img/about-right.jpg);
+      height: 255px;
+      width: 100%;
+      margin-bottom: 22px;
+
+      @include small-desktop {
+        height: 332px;
+        background-image: url(../../img/about-right-1024w.jpg);
+      }
+
+      @include tablet {
+        background-image: url(../../img/about-right-768w.jpg);
+        height: 569px;
+      }
+
+      @include small-tablet {
+        background-image: url(../../img/about-right-320w.jpg);
+        max-width: 100%;
+        height: 278px;
+      }
+
+      @include mobile {
+        margin-bottom: 28px;
+      }
+    }
+
+    &__title-form {
+      margin: 0;
+      font-family: $second-font;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 92%;
+      color: $primary-color;
+      margin-bottom: 17px;
+
+      @include mobile {
+        font-size: 18px;
+      }
+    }
+  }
+
+  &-form {
+    display: flex;
+    column-gap: $gap;
+
+    row-gap: 20px;
+
+    @include small-desktop {
+      align-items: start;
+      flex-direction: column;
+
+    }
+
+    @include mobile {
+
+    }
+
+    &__input {
+      @include input-reset;
+      padding: 15px 22px;
+      width: 100%;
+      background: $gray-dark;
+      border: 1px solid $gray-dark;
+      color: $primary-color;
+
+      &::placeholder {
+        font-size: var(--placeholder-font-size);
+        color: $gray;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        border-color: $orange-light;
+      }
+
+      &:hover::placeholder  {
+        color: $orange-light;
+
+        @include mobile {
+          font-size: 14px;
+        }
+      }
+
+      @include small-desktop {
+        max-width: 342px;
+      }
+
+      @include mobile {
+        font-size: 14px;
+        padding: 11px 22px;
+      }
+    }
+
+
+
+    &__btn {
+      @include btn-reset;
+      @include btn;
+      @include btn--full;
+
+      @include mobile {
+        font-size: 14px;
+        padding: 9px 20px;
+      }
+    }
+  }
+
+
+}
+
+//projects
+.projects {
+
+  &__container {
+    padding-top: 72px;
+    padding-bottom: 72px;
+
+    @include mobile {
+      padding-top: 54px;
+      padding-bottom: 36px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 16px;
+  }
+
+  &__content {
+    grid-auto-flow: dense;
+
+    @include small-desktop {
+      row-gap: 24px;
+    }
+
+    @include mobile {
+      row-gap: 26px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 14px;
+  }
+
+  &-card {
+    display: flex;
+    flex-direction: column;
+
+
+
+    &--1,
+    &--2,
+    &--3 {
+      grid-column: span 2;
+    }
+
+    &--1 {
+      @include tablet {
+        .projects-card__text {
+          -webkit-line-clamp: 3;
+        }
+      }
+    }
+
+    &--2 {
+      @include tablet {
+        .projects-card__text {
+          -webkit-line-clamp: 3;
+        }
+      }
+    }
+
+    &--3 {
+      @include small-desktop {
+
+        grid-column: span 4;
+
+        .projects-card__text {
+          max-width: 100%;
+        }
+      }
+
+      @include tablet {
+        grid-column: span 2;
+      }
+    }
+
+    &--4 {
+      grid-column: 7 / span 6;
+
+      @include projects-card;
+
+      &__text {
+        margin-bottom: 54px;
+        max-height: 400px;
+      }
+
+      @include small-desktop {
+        grid-column: span 5;
+        padding-top: 31px;
+
+        .projects-card__text {
+          -webkit-line-clamp: 3;
+        }
+      }
+
+      @include tablet {
+        grid-column: span 6;
+
+        .projects-card__text {
+          margin-bottom: 47px;
+        }
+      }
+
+      @include mobile {
+        padding-top: 194px;
+
+        .projects-card__text {
+          font-size: 14px;
+          margin-bottom: 11px;
+          -webkit-line-clamp: 10;
+        }
+      }
+    }
+
+    &--5 {
+      grid-column: 1 / span 6;
+
+      @include projects-card;
+
+      &__text {
+        margin-bottom: 102px;
+      }
+
+      @include  small-desktop {
+        grid-column: span 5;
+        padding-top: 28px;
+        order: 1;
+      }
+
+      @include tablet {
+        grid-column: span 6;
+        padding-top: 30px;
+
+        .projects-card__text {
+          margin-bottom: 94px;
+        }
+      }
+
+      @include mobile {
+        .projects-card__text {
+          margin-bottom: 16px;
+        }
+
+        .projects-card__subtitle {
+          margin-bottom: 5px;
+        }
+      }
+    }
+
+    &--4,
+    &--5 {
+      @include mobile {
+        min-height: 422px;
+
+        grid-column: span 2;
+
+        .projects-card__text {
+          font-size: 14px;
+          margin-bottom: 11px;
+          -webkit-line-clamp: 10;
+        }
+
+        .projects-card__date-content {
+          margin-bottom: 7px;
+        }
+
+        .projects-card__subtitle {
+          margin-bottom: 10px;
+        }
+
+        .projects-card__btn {
+          margin-top: 0;
+          padding: 11px 18px;
+          font-size: 14px;
+        }
+      }
+    }
+
+    &--7,
+    &--6 {
+      grid-column: span 3;
+
+      @include small-desktop {
+        .projects-card__text {
+          -webkit-line-clamp: 3;
+        }
+      }
+
+      @include tablet {
+        grid-column: span 3;
+
+        .projects-card__text {
+          margin-bottom: 17px;
+        }
+      }
+
+      @include mobile {
+        grid-column: span 2;
+
+        .projects-card__text {
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+
+
+
+    &__svg {
+      fill: $gray-light;
+      width: 12px;
+      height: 14px;
+    }
+
+    &__text {
+      display: -webkit-box; /* Включаем флексбоксы */
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin: 0;
+      font-size: 16px;
+      line-height: 137%;
+      color: $second-color;
+      margin-bottom: 11px;
+      max-width: 292px;
+      text-overflow: ellipsis;
+      max-height: 400px;
+      -webkit-line-clamp: 3;
+
+      @include small-desktop {
+        -webkit-line-clamp: 2;
+        margin-bottom: 17px;
+      }
+
+      @include tablet {
+        margin-bottom: 10px;
+      }
+    }
+
+
+    &__subtext {
+      font-size: 12px;
+      line-height: 183%;
+      color: $gray-light;
+    }
+
+    &__subtitle {
+      margin: 0;
+      font-size: 24px;
+      line-height: 100%;
+      color: $primary-color;
+      font-family: $second-font;
+      max-width: 262px;
+      margin-bottom: 6px;
+    }
+
+    &__btn {
+      @include btn-reset;
+      @include btn;
+      @include btn--empty;
+
+      margin-top: auto;
+    }
+
+    &__date-content {
+      display: inline-flex;
+      gap: 5px;
+      align-items: center;
+      margin-top: auto;
+    }
+  }
+
+  @for $i from 1 through $sum-card {
+    .projects-card--#{$i} {
+      @include ghost (nth($content, ($i+1)), nth($indent, 2));
+      position: relative;
+
+      @if $i == 4 or $i ==5{
+        background: no-repeat center center / cover url(../../img/projects-card--#{$i}.jpg);
+      }
+      @else {
+        .projects-card__background {
+          background: no-repeat center center / cover url(../../img/projects-card--#{$i}.jpg);
+          width: 100%;
+          min-height: 184px;
+          margin-bottom: 18px;
+        }
+      }
+    }
+  }
+
+  @include small-desktop {
+
+    @for $i from 1 through $sum-card {
+      .projects-card--#{$i} {
+        @if $i == 4 or $i ==5 {
+          background: no-repeat center center / cover url(../../img/projects-card--#{$i}-1024w.jpg);
+        }
+
+        @else {
+          .projects-card__background {
+            background: no-repeat center center / cover url(../../img/projects-card--#{$i}-1024w.jpg);
+          }
+        }
+      }
+    }
+  }
+
+  @include tablet {
+    @for $i from 1 through $sum-card {
+      .projects-card--#{$i} {
+        @if $i == 4 or $i ==5 {
+          background: no-repeat center center / cover url(../../img/projects-card--#{$i}-768w.jpg);
+        }
+
+        @else {
+          .projects-card__background {
+            background: no-repeat center center / cover url(../../img/projects-card--#{$i}-768w.jpg);
+          }
+        }
+      }
+    }
+  }
+
+  @include mobile {
+    @for $i from 1 through $sum-card {
+      .projects-card--#{$i} {
+        &::before {
+          font-size: 12px;
+          padding: 4px 14px;
+          top: 6px;
+          right: 5px;
+        }
+        @if $i == 4 or $i ==5 {
+          background: no-repeat center center / cover url(../../img/projects-card--#{$i}-320w.jpg);
+        }
+
+        @else {
+          .projects-card__background {
+            background: no-repeat center center / cover url(../../img/projects-card--#{$i}-320w.jpg);
+          }
+        }
+      }
+    }
+  }
+
+}
+
+
+
+//contacts
+.contacts {
+  &__container {
+    padding-bottom: 69px;
+
+    @include mobile {
+      padding-bottom: 48px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 19px;
+
+    @include mobile {
+      margin-bottom: 11px;
+    }
+  }
+
+  &-map {
+    padding-top: 4px;
+    position: relative;
+    grid-column: span 8;
+
+    @include small-desktop {
+      grid-column: span 5;
+    }
+
+    @include tablet {
+      grid-column: span 6;
+    }
+
+    @include mobile {
+      grid-column: span 2;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-right: -50vw;
+      margin-left: -50vw;
+      width: 100vw;
+    }
+
+    &__img {
+
+      display: block;
+      height: 100%;
+
+      @include mobile {
+        max-height: none;
+      }
+    }
+  }
+
+  &__content {
+    @include tablet {
+      row-gap: 23px;
+    }
+
+    @include mobile {
+      gap: 24px;
+    }
+  }
+
+  .images {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+
+    @include tablet {
+      width: 100%;
+    }
+  }
+
+  .map-hint {
+    position: absolute;
+    background: rgba(32, 32, 32, 0.85);
+    width: 410px;
+    height: 460px;
+
+    @include small-desktop {
+      bottom: 0;
+      height: 157px;
+      width: 100%;
+    }
+
+    &__content {
+      padding: 175px 50px 150px 60px;
+      position: relative;
+
+      @include small-desktop {
+        padding: 25px 30px;
+        padding-right: 253px;
+      }
+
+      @include small-tablet {
+        padding: 26px 34px 14px 18px;
+        height: 100%;
+      }
+    }
+
+    &__btn {
+      @include btn-reset;
+
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 20px;
+      height: 20px;
+      background-image: url(../../img/map-hint__btn.svg);
+      background-repeat: no-repeat;
+    }
+
+    &__title {
+      @include contacts-map__subtitle;
+      margin-bottom: 6px;
+      color: $primary-color;
+
+      @include tablet {
+        margin-bottom: 3px;
+      }
+
+      @include mobile {
+        margin-bottom: 11px;
+      }
+    }
+
+    &__text {
+      margin: 0;
+      margin-bottom: 2px;
+      padding: 0;
+      font-size: 16px;
+      line-height: 175%;
+      color: $gray;
+
+      @include small-desktop {
+        display: inline;
+      }
+
+      @include tablet {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      @include small-tablet {
+        font-size: 14px;
+        line-height: 129%;
+        margin-bottom: 12px;
+      }
+    }
+
+    &__phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      font-family: $second-font;
+      font-weight: 400;
+      font-size: 16px;
+      color: $orange;
+      border: 1px solid rgba(205, 214, 219, 0);
+      transition: color 0.2s ease-in-out,
+                  border-color 0.2s ease-in-out;
+
+      @include tablet {
+        padding: 0;
+      }
+
+      @include small-tablet {
+        font-weight: 500;
+        font-size: 14px;
+        padding-left: 0;
+      }
+
+      &-svg {
+        width: 18px;
+        height: 18px;
+        fill: $orange-light;
+        transition: fill 0.2s ease-in-out;
+
+        @include small-tablet {
+          width: 15px;
+          height: 15px;
+        }
+      }
+
+
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        border-color: $orange-light;
+      }
+
+      &:hover {
+        color: $orange;
+      }
+
+      &:hover &-svg {
+        fill: $orange;
+      }
+
+      &:active {
+        color: $orange-dark;
+      }
+
+      &:active &-svg {
+        fill: $orange-dark;
+      }
+
+    }
+  }
+
+
+
+
+  .contacts-feedback {
+    grid-column: span 4;
+
+    @include small-desktop {
+      grid-column: span 3;
+    }
+
+    @include tablet {
+      grid-column: 1 / span 4;
+    }
+
+    @include mobile {
+      grid-column: span 2;
+    }
+  }
+
+  .contacts-feedback__title {
+    @include contacts-map__subtitle;
+    margin-bottom: 3px;
+    color: $second-color;
+
+    @include mobile {
+      font-size: 18px;
+      line-height: 122%;
+      margin-bottom: 7px;
+    }
+  }
+
+  .contacts-feedback__text {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 17px;
+    font-size: 16px;
+    line-height: 137%;
+    color: $gray-light;
+
+    @include mobile {
+      font-size: 14px;
+      line-height: 129%;
+    }
+  }
+
+  .contacts-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: start;
+  }
+
+  .contacts-form__input {
+    @include input-reset;
+    width: 100%;
+    padding: 14px 22px;
+    background-color: $white-dark;
+    border: 1px solid $white-dark;
+    transition: border-color 0.2s ease-in-out;
+
+    @include mobile {
+      padding: 11px 22px;
+      font-size: 14px;
+    }
+
+    &:focus-visible {
+      border-color: $orange-light;
+    }
+
+    &:hover::placeholder {
+      color: $orange-light;
+    }
+  }
+
+  .contacts-form__input::placeholder {
+    font-weight: 400;
+    font-size: var(--placeholder-font-size);
+    color: $gray-light;
+    transition: color 0.2s ease-in-out;
+  }
+
+  .contacts-form__input-textarea {
+    max-height: 150px;
+    max-width:  100%;
+    min-width: 100%;
+    height: 150px;
+    resize: none;
+  }
+
+  .contacts-form__btn {
+    @include btn-reset;
+    @include btn;
+    @include btn--full;
+
+    @include mobile {
+      font-weight: 700;
+      font-size: 14px;
+      padding: 9px 20px;
+    }
+  }
+}
+
+
+//footer
+.footer {
+  background-color: $second-color;
+
+  &__container {
+    display: flex;
+    padding-top: 27px;
+    padding-bottom: 25px;
+
+    @include small-desktop {
+      padding-top: 23px;
+    }
+
+    @include tablet {
+      justify-content: space-between;
+    }
+
+    @include mobile {
+      position: relative;
+      padding-top: 30px;
+      padding-bottom: 14px;
+      flex-direction: column;
+      gap: 37px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 62px;
+        background-color: $gray-dark;
+        z-index: 1;
+      }
+    }
+  }
+
+  &-about {
+    display: flex;
+    flex-direction: column;
+    margin-right: 204px;
+
+    @include small-desktop {
+      margin-right: 134px;
+    }
+
+    @include mobile {
+      align-items: center;
+      z-index: 2;
+      order: 2;
+      margin-right: 0;
+      gap: 8px;
+    }
+
+    &__logo {
+      margin-bottom: 3px;
+
+      @include small-desktop {
+        padding-top: 7px;
+        margin-bottom: 14px;
+      }
+    }
+  }
+
+
+
+  &__span {
+    display: inline-block;
+    font-family: $second-font;
+    font-size: 14px;
+    color: $white-dark;
+
+    @include small-tablet {
+      text-wrap: nowrap;
+    }
+
+    @include mobile {
+      font-size: 10px;
+    }
+  }
+
+  &-social {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+
+    @include mobile {
+      align-items: center;
+    }
+
+    &__content {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    &__link {
+      transition: fill 0.2s ease-in-out;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible .footer-social__svg {
+        fill: $orange;
+      }
+    }
+
+    .footer-social__svg {
+      width: 30px;
+      height: 30px;
+      fill: $gray;
+      transition: fill 0.2s ease-in-out;
+
+      &:hover {
+        fill: $orange-light;
+      }
+
+      &:active {
+        fill: $orange-dark;
+      }
+    }
+  }
+
+  &-quote {
+    max-width: 361px;
+    margin-right: auto;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &-quote__text,
+  &-social__text {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 137%;
+    color: $gray;
+  }
+}
+
+
+
+@import '_media.scss';
